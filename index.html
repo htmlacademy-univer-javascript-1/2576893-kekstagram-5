@@ -9,33 +9,15 @@
   <title>Кекстаграм</title>
   <script src="js/main.js" defer></script>
 </head>
-
 <body>
   <main>
-    <script src="js/main.js"></script>
-    <script src="js/functions.js"></script>
-    <script>
-        console.log(checkLen("Hello, World!", 5)); // false
-        console.log(checkLen("Hello, World!", 15)); // true
-
-        console.log(isPalindrome('топот')); // true
-        console.log(isPalindrome('ДовОд')); // true
-        console.log(isPalindrome('Кекс'));  // false
-        console.log(isPalindrome('Лёша на полке клопа нашёл ')); // true
-
-        console.log(extractNumbers('2023 год'));            // 2023
-        console.log(extractNumbers('ECMAScript 2022'));     // 2022
-        console.log(extractNumbers('1 кефир, 0.5 батона')); // 105
-        console.log(extractNumbers('агент 007'));           // 7
-        console.log(extractNumbers('а я томат'));           // NaN
-    </script>
     <!-- Фильтрация изображений от других пользователей -->
     <section class="img-filters  img-filters--inactive  container">
       <h2 class="img-filters__title  visually-hidden">Фильтр фотографий</h2>
       <form class="img-filters__form" action="index.html" method="get" autocomplete="off">
-        <button type=button class="img-filters__button  img-filters__button--active" id="filter-default">По умолчанию</button>
-        <button type=button class="img-filters__button" id="filter-random">Случайные</button>
-        <button type=button class="img-filters__button" id="filter-discussed">Обсуждаемые</button>
+        <button type="button" class="img-filters__button  img-filters__button--active" id="filter-default">По умолчанию</button>
+        <button type="button" class="img-filters__button" id="filter-random">Случайные</button>
+        <button type="button" class="img-filters__button" id="filter-discussed">Обсуждаемые</button>
       </form>
     </section>
 
@@ -244,5 +226,22 @@
     </section>
   </template>
 
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/functions.js"></script>
+  <script>
+    console.log(checkLen("Hello, World!", 5)); // false
+    console.log(checkLen("Hello, World!", 15)); // true
+
+    console.log(isPalindrome('топот')); // true
+    console.log(isPalindrome('ДовОд')); // true
+    console.log(isPalindrome('Кекс'));  // false
+    console.log(isPalindrome('Лёша на полке клопа нашёл ')); // true
+
+    console.log(extractNumbers('2023 год'));            // 2023
+    console.log(extractNumbers('ECMAScript 2022'));     // 2022
+    console.log(extractNumbers('1 кефир, 0.5 батона')); // 105
+    console.log(extractNumbers('агент 007'));           // 7
+    console.log(extractNumbers('а я томат'));           // NaN
+  </script>
 </body>
 </html>
