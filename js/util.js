@@ -1,22 +1,29 @@
-export function getRandomInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+function getRandomInteger(min, max) {
+  if (min < 0 || max < 0) {
+    return NaN;
+  }
+  if (min === max) {
+    return min;
+  }
+  if (min > max) {
+    [min, max] = [max, min];
+  }
+  const randomValue = Math.round(min + Math.random() * (max - min));
+  return randomValue;
 }
 
-export function getRandomSentence() {
-  const sentences = [
-    'Всё отлично!',
-    'В целом всё неплохо. Но не всё.',
-    'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
-    'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
-    'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
-    'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
-  ];
-  return sentences[getRandomInteger(0, sentences.length - 1)];
-}
+const getRandomArrayElement = (elements) =>
+  elements[getRandomInteger(0, elements.length - 1)];
 
-export function getRandomName() {
-  const names = [
-    'Артём', 'Анна', 'Иван', 'Мария', 'Пётр', 'Елена', 'Дмитрий', 'Ольга', 'Сергей', 'Татьяна'
-  ];
-  return names[getRandomInteger(0, names.length - 1)];
-}
+const getTemplate = (id) => {
+  const template = document.getElementById(id);
+  if (!template) {
+    throw new Error(`Template ${id} not found`);
+  }
+  if (!(template instanceof HTMLTemplateElement)) {
+    throw new Error('Not template element');
+  }
+  return template.content.firstElementChild;
+};
+
+export { getRandomInteger, getRandomArrayElement, getTemplate };
